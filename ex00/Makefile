@@ -6,10 +6,13 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/10 10:08:54 by meghribe          #+#    #+#              #
-#    Updated: 2025/08/10 16:20:15 by meghribe         ###   ########.fr        #
+#    Updated: 2025/08/11 22:37:03 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+IDIR = .
+ODIR = .
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 NAME = megaphone
 
@@ -17,7 +20,7 @@ $(NAME):
 
 .PHONY: all
 all: $(NAME)
-	c++ $(CFLAGS) megaphone.cpp
+	$(CC) $(CFLAGS) megaphone.cpp
 
 .PHONY: clean
 clean:
