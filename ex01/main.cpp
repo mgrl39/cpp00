@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 09:21:54 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 09:39:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	search(void)
 {
 }
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	std::string	order;
 
