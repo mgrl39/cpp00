@@ -9,7 +9,7 @@ void	PhoneBook::add_contact()
 	std::string phone_number;
 	std::string darkest_secret;
 
-	std::cout << "\e[1;33m>\e[0m ";
+	std::cout << "\e[1;33mFIRST NAME >\e[0m ";
 	std::getline(std::cin, first_name);
 	std::getline(std::cin, last_name);
 	std::getline(std::cin, nickname);

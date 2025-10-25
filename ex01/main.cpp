@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 10:57:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:00:40 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	order_loop(void)
 	{
 		if (order == "EXIT")
 			break ;
-		std::cout << "\e[1;33m>\e[0m ";
 		if (order == "ADD")
 			phoneBook.add_contact();
 		else if (order == "SEARCH")
@@ -68,6 +67,7 @@ void	order_loop(void)
 			std::cout << "\e[0m" << std::endl;
 			order = "";
 		}
+		std::cout << "\e[1;33m>\e[0m ";
 	}
 }
 
