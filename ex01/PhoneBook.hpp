@@ -7,5 +7,6 @@ class PhoneBook {
 		Contact contacts[8];
 
 	public:
+		PhoneBook();
 
 };

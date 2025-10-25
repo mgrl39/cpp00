@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 09:39:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 09:54:15 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,10 @@ void	search(void)
 {
 }
 
-int	main(void)
+void	order_loop(void)
 {
 	std::string	order;
 
-	print_welcome();
 	while (order != "EXIT")
 	{
 		print_available_orders();
@@ -69,5 +68,11 @@ int	main(void)
 			order = "";
 		}
 	}
+}
+
+int	main(void)
+{
+	print_welcome();
+	order_loop();
 	return (0);
 }
