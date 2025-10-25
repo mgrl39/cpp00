@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 08:58:54 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 09:07:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ void	print_available_orders(void)
 	std::cout << order_list << std::endl;
 }
 
+void	add(void)
+{
+}
+
+void	search(void)
+{
+}
+
 int	main(int argc, char *argv[])
 {
 	std::string	order;
@@ -43,7 +51,21 @@ int	main(int argc, char *argv[])
 	while (order != "EXIT")
 	{
 		print_available_orders();
-		order = "EXIT";
+		std::cout << ">";
+		std::cin >> order;
+		if (order == "EXIT")
+			break ;
+		if (order == "ADD")
+			add();
+		else if (order == "SEARCH")
+			search();
+		else
+		{
+			std::cout << "\ninvalid order\n" << std::endl;
+			std::cout << order << std::endl;
+			break ;
+			order = "";
+		}
 	}
 	return (0);
 }
