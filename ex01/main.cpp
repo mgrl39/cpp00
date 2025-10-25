@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 11:00:40 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:27:07 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,8 @@ void	order_loop(void)
 		else if (order == "SEARCH")
 			search();
 		else
-		{
-			std::cout << "\nInvalid order\n\e[0;31m" << std::endl;
-			std::cout << order;
-			std::cout << "\e[0m" << std::endl;
 			order = "";
-		}
+		print_available_orders();
 		std::cout << "\e[1;33m>\e[0m ";
 	}
 }
