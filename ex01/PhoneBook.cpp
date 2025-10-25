@@ -1,11 +1,12 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
+/*
 static void	value_saver(std::string msg, std::string *value)
 {
 	std::cout << "\e[1;33m";
 	std::cout << msg << ">\e[0m ";
-	while (!std::getline(std::cin, *value))
+	while (std::getline(std::cin, *value))
 	{
 		break ;
 		std::cout << "\e[1;33m";
@@ -13,6 +14,7 @@ static void	value_saver(std::string msg, std::string *value)
 	}
 	std::cout << std::endl;
 }
+*/
 
 void	PhoneBook::add_contact()
 {
@@ -23,9 +25,9 @@ void	PhoneBook::add_contact()
 	std::string darkest_secret;
 
 	// TODO: A saved contact can’t have empty fields
-	value_saver("FIRST NAME", &first_name);
-	//std::cout << "\e[1;33mFIRST NAME >\e[0m "; 
+	std::cout << "\e[1;33mFIRST NAME >\e[0m "; 
 	std::getline(std::cin, first_name);
+	//std::getline(std::cin, first_name);
 	std::cout << "\e[1;33mLAST NAME >\e[0m "; 
 	std::getline(std::cin, last_name);
 	std::cout << "\e[1;33mNICKNAME >\e[0m "; 
