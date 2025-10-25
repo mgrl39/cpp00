@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 09:54:15 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 10:28:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ void	order_loop(void)
 {
 	std::string	order;
 
-	while (order != "EXIT")
+	print_available_orders();
+	std::cout << "\e[1;33m>\e[0m ";
+	while (std::getline(std::cin, order))
 	{
-		print_available_orders();
-		std::cout << "\e[1;33m>\e[0m ";
-		std::cin >> order;
 		if (order == "EXIT")
 			break ;
+		std::cout << "\e[1;33m>\e[0m ";
 		if (order == "ADD")
 			add();
 		else if (order == "SEARCH")
