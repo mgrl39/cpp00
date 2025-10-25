@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 11:43:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:43:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,5 @@ void	order_loop(void)
 
 int	main(void)
 {
-	print_welcome();
-	order_loop();
-	return (0);
+	return (print_welcome(), order_loop(), 0);
 }
