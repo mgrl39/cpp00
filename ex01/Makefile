@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/25 08:23:21 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/25 09:40:08 by meghribe         ###   ########.fr        #
+#    Updated: 2025/10/25 09:47:20 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp Contact.cpp PhoneBook.cpp
 OBJS = main.o Contact.o PhoneBook.o
+LIBS = Contact.hpp PhoneBook.hpp
 # faltan los hpp...
 RM = rm -f
 
@@ -25,7 +26,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # include hpp
-$(OBJS): $(SRCS) Makefile 
+$(OBJS): $(SRCS) Makefile $(LIBS)
 
 .PHONY: clean
 clean:
