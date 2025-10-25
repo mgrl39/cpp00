@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <iostream>
 
 void	PhoneBook::add_contact()
 {
@@ -8,11 +9,23 @@ void	PhoneBook::add_contact()
 	std::string phone_number;
 	std::string darkest_secret;
 
-//Contact	new_contact;
+	std::cout << "\e[1;33m>\e[0m ";
+	std::getline(std::cin, first_name);
+	std::getline(std::cin, last_name);
+	std::getline(std::cin, nickname);
+	std::getline(std::cin, phone_number);
+	std::getline(std::cin, darkest_secret);
+
+	Contact	new_contact(first_name, last_name, nickname,\
+		phone_number, darkest_secret);
 
 }
 
 void	PhoneBook::search_contacts()
 {
 
+}
+
+PhoneBook::PhoneBook()
+{
 }

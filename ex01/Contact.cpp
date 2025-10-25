@@ -10,3 +10,7 @@ Contact::Contact(std::string first_name, std::string last_name \
 	this->phone_number = phone_number;
 	this->darkest_secret = darkest_secret;
 }
+
+Contact::Contact()
+{
+}
