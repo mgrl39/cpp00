@@ -1,7 +1,2 @@
-class PhoneBook {
-	private:
-		Contact contacts[8];
+#include "PhoneBook.hpp"
 
-	public:
-
-};

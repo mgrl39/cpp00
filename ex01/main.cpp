@@ -6,12 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 09:15:01 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 09:21:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 void	print_welcome(void)
 {
