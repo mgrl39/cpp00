@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 11:41:56 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:43:22 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ void	print_available_orders(void)
 	std::cout << order_list << std::endl;
 }
 
-void	search(void)
-{
-}
-
 void	order_loop(void)
 {
 	PhoneBook	phoneBook;
@@ -55,7 +51,7 @@ void	order_loop(void)
 		if (order == "ADD")
 			phoneBook.add_contact();
 		else if (order == "SEARCH")
-			search();
+			phoneBook.search_contacts();
 		print_available_orders();
 		std::cout << "\e[1;33m>\e[0m ";
 	}
