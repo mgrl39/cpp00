@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 11:39:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:41:56 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ void	print_available_orders(void)
 	order_list += "\e[1;32mEXIT\e[0m: the program quits\n";
 	order_list += "\e[0;32m▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n\e[0m";
 	std::cout << order_list << std::endl;
-}
-
-void	add(void)
-{
 }
 
 void	search(void)
