@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 11:39:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:39:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	order_loop(void)
 			phoneBook.add_contact();
 		else if (order == "SEARCH")
 			search();
-		else
-			order = "";
 		print_available_orders();
 		std::cout << "\e[1;33m>\e[0m ";
 	}
