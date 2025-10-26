@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:22:56 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 09:03:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 09:08:32 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Contact {
 		std::string nickname;
 		std::string phone_number;
 		std::string darkest_secret;
+
 	public:
 		Contact(void);
 		~Contact(void);

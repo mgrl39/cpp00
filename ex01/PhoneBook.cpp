@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 08:42:48 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 09:11:19 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	PhoneBook::search_contacts()
 
 	i = 0;
 	while (i++ < 4)
-		std::cout << "|" << "----------";
+		std::cout << "|" << "==========";
 	std::cout << "|" << std::endl;
 	draw_column_name("INDEX");
 	draw_column_name("FIRST NAME");
@@ -130,9 +130,11 @@ void	PhoneBook::search_contacts()
 	{
 		std::cout << "|" << std::right << std::setw(10) << (j + 1);
 		// TODO: HERE IS WHERE WE NEED THE GETTERS :/
-		//draw_column_name(this->contacts[j].first_name);
+		draw_column_name(this->contacts[j].get_first_name());
+		draw_column_name(this->contacts[j].get_last_name());
+		draw_column_name(this->contacts[j].get_nickname());
+		std::cout << "|" << std::endl;
 	}
-	std::cout << std::endl;
 	while (--i)
 		std::cout << "|" << "----------";
 	std::cout << "|" << std::endl;
