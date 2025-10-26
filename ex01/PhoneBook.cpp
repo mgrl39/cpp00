@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
+/*   Updated: 2025/10/26 07:50:39 by meghribe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include <iostream>
 
@@ -9,9 +21,9 @@ static int 	phone_verify_if_all_numbers(std::string phone_number)
 {
 	int	i;
 
-	i = 0;
 	if (phone_number.length() <= 0)
 		return (1);
+	i = 0;
 	while (phone_number[i] != '\0')
 	{
 		if (std::isdigit(phone_number[i++]))
@@ -20,7 +32,6 @@ static int 	phone_verify_if_all_numbers(std::string phone_number)
 		return (1);
 	}
 	return (0);
-
 }
 
 /* 
