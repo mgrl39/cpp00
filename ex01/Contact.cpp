@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:42 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 11:36:05 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 12:58:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Contact::~Contact()
 
 std::string	Contact::get_first_name(void)
 {
-	return (this->first_name);
+	return (first_name);
 }
 
 void		Contact::set_first_name(std::string first_name)

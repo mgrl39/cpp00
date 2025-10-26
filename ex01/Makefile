@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/25 08:23:21 by meghribe          #+#    #+#              #
-#    Updated: 2025/10/26 07:24:19 by meghribe         ###   ########.fr        #
+#    Updated: 2025/10/26 12:55:27 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS) Makefile $(LIBS)
+%.o: %.cpp Makefile
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:

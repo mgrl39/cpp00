@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 12:33:50 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:14:21 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static int	show_specific_contact(PhoneBook phoneBook, int nbr_contacts)
 {
 	std::string	index_selected;
 	bool		is_valid_number;
+	int			index;
 
 	is_valid_number = false;
 	while (is_valid_number != true)
@@ -67,18 +68,24 @@ static int	show_specific_contact(PhoneBook phoneBook, int nbr_contacts)
 					std::cout << "exiting from search" << std::endl;
 					return (0);
 				}
-				std::cout << index_selected[0] << std::endl;
-				std::cout << nbr_contacts << std::endl;
-				std::cout << (index_selected[0] <= nbr_contacts + 48) << std::endl;
-				if ((int)(index_selected[0]) <= nbr_contacts + 48)
+				if (index_selected[0] <= nbr_contacts + 48)
 					is_valid_number = true;
 				else
 					std::cout << "another number please..." << std::endl;
 			}
 		}
 	}
-	(void)nbr_contacts;
-	(void)phoneBook;
+	Contact specific;
+	std::cout << "===============" << std::endl;
+	index = index_selected[0] - 49;
+	specific = phoneBook.get_contact(index);
+	std::cout << "First name: " << specific.get_first_name() << std::endl;
+	std::cout << "Last name: " << specific.get_last_name() << std::endl;
+	std::cout << "Nickname: " << specific.get_nickname() << std::endl;
+	std::cout << "Phone number: " << specific.get_phone_number() << std::endl;
+	std::cout << "Darkest secret: " << specific.get_darkest_secret() << std::endl;
+	std::cout << "===============" << std::endl;
+	std::cout << std::endl;
 	return (0);
 }
 
