@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 10:36:01 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:32:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ static void	print_available_orders(void)
 	std::cout << order_list << std::endl;
 }
 
-static void	draw_column_name(std::string name)
+static void	draw_column_name(std::string name, bool truncate)
 {
+	if (truncate)
+		name = name.length() > 10 ? (name.substr(0, 9) + ".") : name;
 	std::cout << "|" << std::right << std::setw(10) << name;
 }
 
@@ -59,10 +61,10 @@ static void	show_phonebook_contacts(PhoneBook phoneBook)
 	while (i++ < 4)
 		std::cout << "|" << "==========";
 	std::cout << "|" << std::endl;
-	draw_column_name("INDEX");
-	draw_column_name("FIRST NAME");
-	draw_column_name("LAST NAME");
-	draw_column_name("NICKNAME");
+	draw_column_name("INDEX", false);
+	draw_column_name("FIRST NAME", false);
+	draw_column_name("LAST NAME", false);
+	draw_column_name("NICKNAME", false);
 	std::cout << "|" << std::endl;
 	j = -1;
 	while (++j < nbr_contants)
@@ -70,9 +72,9 @@ static void	show_phonebook_contacts(PhoneBook phoneBook)
 		std::cout << "|" << std::right << std::setw(10) << (j + 1);
 		// TODO: HERE IS WHERE WE NEED THE GETTERS :/
 		actual_contact = phoneBook.get_contact(j);
-		draw_column_name(actual_contact.get_first_name());
-		draw_column_name(actual_contact.get_last_name());
-		draw_column_name(actual_contact.get_nickname());
+		draw_column_name(actual_contact.get_first_name(), true);
+		draw_column_name(actual_contact.get_last_name(), true);
+		draw_column_name(actual_contact.get_nickname(), true);
 		std::cout << "|" << std::endl;
 	}
 	while (--i)
