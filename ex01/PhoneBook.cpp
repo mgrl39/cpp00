@@ -6,12 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 07:54:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 08:06:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <iomanip>
 
 /*
  * Returns 1 if phone_number empty or is not only numbers
@@ -101,11 +102,21 @@ int	PhoneBook::add_contact()
 
 void	PhoneBook::search_contacts()
 {
+	if (this->nbr_contacts == 0)
+	{
+		std::cout << "There are no contacts" << std::endl;
+		return ;
+	}
 	int	i;
 
 	i = 0;
 	while (i++ < 4)
 		std::cout << "|" << "----------";
+	std::cout << "|" << std::endl;
+	std::cout << "|" << std::right << std::setw(10) << "INDEX";
+	std::cout << "|" << std::right << std::setw(10) << "FIRST NAME";
+	std::cout << "|" << std::right << std::setw(10) << "LAST NAME";
+	std::cout << "|" << std::right << std::setw(10) << "NICKNAME";
 	std::cout << "|" << std::endl;
 	while (--i)
 		std::cout << "|" << "----------";
@@ -114,4 +125,5 @@ void	PhoneBook::search_contacts()
 
 PhoneBook::PhoneBook()
 {
+	this->nbr_contacts = 0;
 }
