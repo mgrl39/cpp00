@@ -2,10 +2,10 @@
 #include <iostream>
 
 /*
-static void	value_saver(std::string msg, std::string *value)
+static void	value_saver(std::string var_name, std::string *value)
 {
 	std::cout << "\e[1;33m";
-	std::cout << msg << ">\e[0m ";
+	std::cout << var_name << ">\e[0m ";
 	int	i;
 
 	i = 0;
@@ -35,7 +35,7 @@ static void	value_saver(std::string msg, std::string *value)
 		//if ((*value).length() > 0)
 			//break ;
 		std::cout << "\e[1;33m";
-		std::cout << msg << ">\e[0m ";
+		std::cout << var_name << ">\e[0m ";
 		i++;
 	}
 	if ((*value).empty())
@@ -44,6 +44,31 @@ static void	value_saver(std::string msg, std::string *value)
 }
 */
 
+int	loop_data_saver(std::string var_name, std::string *var)
+{
+	while (1)
+	{
+		std::cout << "\e[1;33m";
+		std::cout << var_name;
+		std::cout <<  ">\e[0m ";
+		std::getline(std::cin, *var);
+		if (std::cin.fail())
+		{
+			if (std::cin.eof())
+				std::cout << std::endl;
+			std::cin.clear();
+			std::cout << "\e[1;31mFAIL\e[0m" << std::endl;
+			return (1);
+		}
+		if ((*var).length() == 0)
+		{
+			std::cout << "cannot be empty..." << std::endl;
+			continue ;
+		}
+		break ;
+	}
+	return (0);
+}
 // Returns 1 if fails
 // Returns 0 if success
 int	PhoneBook::add_contact()
@@ -57,18 +82,17 @@ int	PhoneBook::add_contact()
 	// TODO: if variables are length() <= 0 empty fields try again.
 	// If EOF can be fail but no with empty fields...
 	// TODO: A saved contact can’t have empty fields
-	std::cout << "\e[1;33mFIRST NAME >\e[0m "; 
-	std::getline(std::cin, first_name);
-	if (std::cin.fail() || first_name.length() <= 0)
-	{
-		if (std::cin.eof())
-			std::cout << std::endl;
-		std::cin.clear();
-		std::cout << "\e[1;31mFAIL\e[0m" << std::endl;
+	// aqui
+	if (loop_data_saver("FIRST NAME", &first_name) == 1)
 		return (1);
-	}
-	//value_saver("FIRST NAME", &first_name);
-	//std::getline(std::cin, first_name);
+	if (loop_data_saver("LAST NAME", &last_name) == 1)
+		return (1);
+	if (loop_data_saver("NICKNAME", &nickname) == 1)
+		return (1);
+	if (loop_data_saver("PHONE NUMBER", &phone_number) == 1)
+		return (1);
+	if (loop_data_saver("DARKEST SECRET", &darkest_secret) == 1)
+		return (1);
 	/*
 	std::cout << "\e[1;33mLAST NAME >\e[0m "; 
 	std::getline(std::cin, last_name);
