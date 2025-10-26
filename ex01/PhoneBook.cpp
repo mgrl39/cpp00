@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 11:06:34 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:36:56 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,12 @@ int	PhoneBook::add_contact()
 	while (phone_verify_if_all_numbers(phone_number));
 	if (loop_data_saver("DARKEST SECRET", &darkest_secret) == 1)
 		return (1);
-	Contact	new_contact(first_name, last_name, nickname,\
-			phone_number, darkest_secret);
+	Contact		new_contact;
+	new_contact.set_first_name(first_name);
+	new_contact.set_last_name(last_name);
+	new_contact.set_nickname(nickname);
+	new_contact.set_phone_number(phone_number);
+	new_contact.set_darkest_secret(darkest_secret);
 	if (this->nbr_contacts != 8)
 	{
 		this->contacts[this->nbr_contacts % 8] = new_contact;

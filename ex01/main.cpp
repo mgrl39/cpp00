@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 11:32:35 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:34:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ static void	show_phonebook_contacts(PhoneBook phoneBook)
 	while (++j < nbr_contants)
 	{
 		std::cout << "|" << std::right << std::setw(10) << (j + 1);
-		// TODO: HERE IS WHERE WE NEED THE GETTERS :/
 		actual_contact = phoneBook.get_contact(j);
 		draw_column_name(actual_contact.get_first_name(), true);
 		draw_column_name(actual_contact.get_last_name(), true);
 		draw_column_name(actual_contact.get_nickname(), true);
 		std::cout << "|" << std::endl;
 	}
+	// TODO: SELECT THE SEARCH ONE THAT WE WANT TO SHOW
 	while (--i)
 		std::cout << "|" << "----------";
 	std::cout << "|" << std::endl;
