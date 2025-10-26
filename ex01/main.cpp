@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 13:14:21 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:18:12 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	show_specific_contact(PhoneBook phoneBook, int nbr_contacts)
 	is_valid_number = false;
 	while (is_valid_number != true)
 	{
-		if (loop_data_saver("SELECT INDEX:", &index_selected))
+		if (loop_data_saver("SELECT INDEX", &index_selected))
 			return (1);
 		if (verify_if_all_numbers(index_selected) == 0)
 		{
