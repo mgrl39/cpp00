@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 08:06:05 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 08:25:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,13 @@ int	PhoneBook::add_contact()
 		phone_number, darkest_secret);
 	// TODO: SAVE CONTACTS
 	this->contacts[this->nbr_contacts % 8] = new_contact;
+	nbr_contacts++;
 	return (0);
+}
+
+static void	draw_column_name(std::string name)
+{
+	std::cout << "|" << std::right << std::setw(10) << name;
 }
 
 void	PhoneBook::search_contacts()
@@ -113,14 +119,15 @@ void	PhoneBook::search_contacts()
 	while (i++ < 4)
 		std::cout << "|" << "----------";
 	std::cout << "|" << std::endl;
-	std::cout << "|" << std::right << std::setw(10) << "INDEX";
-	std::cout << "|" << std::right << std::setw(10) << "FIRST NAME";
-	std::cout << "|" << std::right << std::setw(10) << "LAST NAME";
-	std::cout << "|" << std::right << std::setw(10) << "NICKNAME";
+	draw_column_name("INDEX");
+	draw_column_name("FIRST NAME");
+	draw_column_name("LAST NAME");
+	draw_column_name("NICKNAME");
 	std::cout << "|" << std::endl;
 	while (--i)
 		std::cout << "|" << "----------";
 	std::cout << "|" << std::endl;
+	std::cout << std::endl;
 }
 
 PhoneBook::PhoneBook()
