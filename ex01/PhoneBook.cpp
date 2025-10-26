@@ -1,6 +1,26 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
+/*
+ * Returns 1 if phone_number empty or is not only numbers
+ */
+static int 	phone_verify_if_all_numbers(std::string phone_number)
+{
+	int	i;
+
+	i = 0;
+	if (phone_number.length() <= 0)
+		return (1);
+	while (phone_number[i] != '\0')
+	{
+		if (std::isdigit(phone_number[i++]))
+			continue ;
+		std::cout << "only numbers" << std::endl;
+		return (1);
+	}
+	return (0);
+
+}
 /* 
  * Function to not be repeating the same in add_contact.
  * This one checks if its EOF or empty.
@@ -52,8 +72,11 @@ int	PhoneBook::add_contact()
 		return (1);
 	if (loop_data_saver("NICKNAME", &nickname) == 1)
 		return (1);
-	if (loop_data_saver("PHONE NUMBER", &phone_number) == 1)
-		return (1);
+	do {
+		if (loop_data_saver("PHONE NUMBER", &phone_number) == 1)
+			return (1);
+	}
+	while (phone_verify_if_all_numbers(phone_number));
 	if (loop_data_saver("DARKEST SECRET", &darkest_secret) == 1)
 		return (1);
 	Contact	new_contact(first_name, last_name, nickname,\
