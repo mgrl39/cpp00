@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/25 11:43:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 06:26:28 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	order_loop(void)
 	{
 		if (order == "EXIT")
 			break ;
-		if (order == "ADD")
-			phoneBook.add_contact();
+		if (order == "ADD" && phoneBook.add_contact())
+				break ;
 		else if (order == "SEARCH")
 			phoneBook.search_contacts();
 		print_available_orders();

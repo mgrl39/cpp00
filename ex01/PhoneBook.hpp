@@ -8,6 +8,6 @@ class PhoneBook {
 
 	public:
 		PhoneBook();
-		void	add_contact();
+		int	add_contact();
 		void	search_contacts();
 };

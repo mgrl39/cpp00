@@ -44,7 +44,9 @@ static void	value_saver(std::string msg, std::string *value)
 }
 */
 
-void	PhoneBook::add_contact()
+// Returns 1 if fails
+// Returns 0 if success
+int	PhoneBook::add_contact()
 {
 	std::string first_name;
 	std::string last_name;
@@ -52,13 +54,18 @@ void	PhoneBook::add_contact()
 	std::string phone_number;
 	std::string darkest_secret;
 
+	// TODO: if variables are length() <= 0 empty fields try again.
+	// If EOF can be fail but no with empty fields...
 	// TODO: A saved contact can’t have empty fields
 	std::cout << "\e[1;33mFIRST NAME >\e[0m "; 
 	std::getline(std::cin, first_name);
-	if (std::cin.fail())
+	if (std::cin.fail() || first_name.length() <= 0)
 	{
+		if (std::cin.eof())
+			std::cout << std::endl;
 		std::cin.clear();
-		std::cout << "FAIL" << std::endl;
+		std::cout << "\e[1;31mFAIL\e[0m" << std::endl;
+		return (1);
 	}
 	//value_saver("FIRST NAME", &first_name);
 	//std::getline(std::cin, first_name);
@@ -74,7 +81,7 @@ void	PhoneBook::add_contact()
 
 	Contact	new_contact(first_name, last_name, nickname,\
 		phone_number, darkest_secret);
-
+	return (0);
 }
 
 void	PhoneBook::search_contacts()
