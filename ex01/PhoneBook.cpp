@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 09:11:19 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 09:21:06 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ int	PhoneBook::add_contact()
 		phone_number, darkest_secret);
 	// TODO: SAVE CONTACTS
 	this->contacts[this->nbr_contacts % 8] = new_contact;
-	nbr_contacts++;
+	if (nbr_contacts >= 0 && nbr_contacts < 8)
+		nbr_contacts++;
 	return (0);
 }
 
