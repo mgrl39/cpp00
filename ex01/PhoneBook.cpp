@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 11:59:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 12:10:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * Returns 1 if phone_number empty or is not only numbers
  * Returns 0 if phone_number is only numbers
  */
-int 	phone_verify_if_all_numbers(std::string phone_number)
+int 	verify_if_all_numbers(std::string phone_number)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int 	phone_verify_if_all_numbers(std::string phone_number)
 	{
 		if (std::isdigit(phone_number[i++]))
 			continue ;
-		std::cout << "only numbers" << std::endl;
+		std::cout << "only positive numbers" << std::endl;
 		return (1);
 	}
 	return (0);
@@ -89,7 +89,7 @@ int	PhoneBook::add_contact()
 		if (loop_data_saver("PHONE NUMBER", &phone_number) == 1)
 			return (1);
 	}
-	while (phone_verify_if_all_numbers(phone_number));
+	while (verify_if_all_numbers(phone_number));
 	if (loop_data_saver("DARKEST SECRET", &darkest_secret) == 1)
 		return (1);
 	Contact		new_contact;

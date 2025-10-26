@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 12:01:44 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 12:09:31 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "PhoneBook.hpp"
 
 int	loop_data_saver(std::string var_name, std::string *var);
-int 	phone_verify_if_all_numbers(std::string phone_number);
+int 	verify_if_all_numbers(std::string phone_number);
 
 static void	print_welcome(void)
 {
@@ -48,8 +48,17 @@ static void	draw_column_name(std::string name, bool truncate)
 
 static int	show_specific_contact(PhoneBook phoneBook, int nbr_contacts)
 {
-	std::string	hola;
+	std::string	index_selected;
+	bool		is_number;
 
+	is_number = false;
+	while (is_number != true)
+	{
+		if (loop_data_saver("SELECT INDEX:", &index_selected))
+			return (1);
+		if (verify_if_all_numbers(index_selected) == 0)
+			is_number = true;
+	}
 	(void)nbr_contacts;
 	(void)phoneBook;
 	return (0);
