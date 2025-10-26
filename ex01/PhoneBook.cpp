@@ -58,6 +58,8 @@ int	PhoneBook::add_contact()
 		return (1);
 	Contact	new_contact(first_name, last_name, nickname,\
 		phone_number, darkest_secret);
+	// TODO: SAVE CONTACTS
+	this->contacts[this->nbr_contacts % 8] = new_contact;
 	return (0);
 }
 
