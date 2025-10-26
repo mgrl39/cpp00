@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 07:50:39 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 07:54:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,15 @@ int	PhoneBook::add_contact()
 
 void	PhoneBook::search_contacts()
 {
+	int	i;
 
+	i = 0;
+	while (i++ < 4)
+		std::cout << "|" << "----------";
+	std::cout << "|" << std::endl;
+	while (--i)
+		std::cout << "|" << "----------";
+	std::cout << "|" << std::endl;
 }
 
 PhoneBook::PhoneBook()
