@@ -6,13 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 09:21:06 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 10:36:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <iomanip>
 
 /*
  * Returns 1 if phone_number empty or is not only numbers
@@ -72,6 +71,7 @@ static int	loop_data_saver(std::string var_name, std::string *var)
 // Returns 1 if fails
 // Returns 0 if success
 // A saved contact can’t have empty fields
+// TODO: FIX MODULE THING BECAUSE IS ONLY CHANGING THE FIRST ONE EACH TIME
 int	PhoneBook::add_contact()
 {
 	std::string first_name;
@@ -95,54 +95,37 @@ int	PhoneBook::add_contact()
 		return (1);
 	Contact	new_contact(first_name, last_name, nickname,\
 		phone_number, darkest_secret);
-	// TODO: SAVE CONTACTS
 	this->contacts[this->nbr_contacts % 8] = new_contact;
-	if (nbr_contacts >= 0 && nbr_contacts < 8)
-		nbr_contacts++;
+	if (this->nbr_contacts >= 0 && this->nbr_contacts < 8)
+		this->nbr_contacts++;
 	return (0);
-}
-
-static void	draw_column_name(std::string name)
-{
-	std::cout << "|" << std::right << std::setw(10) << name;
-}
-
-void	PhoneBook::search_contacts()
-{
-	if (this->nbr_contacts == 0)
-	{
-		std::cout << "There are no contacts" << std::endl;
-		return ;
-	}
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i++ < 4)
-		std::cout << "|" << "==========";
-	std::cout << "|" << std::endl;
-	draw_column_name("INDEX");
-	draw_column_name("FIRST NAME");
-	draw_column_name("LAST NAME");
-	draw_column_name("NICKNAME");
-	std::cout << "|" << std::endl;
-	j = -1;
-	while (++j < this->nbr_contacts)
-	{
-		std::cout << "|" << std::right << std::setw(10) << (j + 1);
-		// TODO: HERE IS WHERE WE NEED THE GETTERS :/
-		draw_column_name(this->contacts[j].get_first_name());
-		draw_column_name(this->contacts[j].get_last_name());
-		draw_column_name(this->contacts[j].get_nickname());
-		std::cout << "|" << std::endl;
-	}
-	while (--i)
-		std::cout << "|" << "----------";
-	std::cout << "|" << std::endl;
-	std::cout << std::endl;
 }
 
 PhoneBook::PhoneBook()
 {
 	this->nbr_contacts = 0;
+}
+
+PhoneBook::~PhoneBook()
+{
+}
+
+int		PhoneBook::get_last_contact_updated(void)
+{
+		return (this->last_contact_updated);
+}
+
+void	PhoneBook::set_last_contact_updated(int last_contact_updated)
+{
+	this->last_contact_updated = last_contact_updated;
+}
+
+int		PhoneBook::get_nbr_contacts(void)
+{
+		return (this->nbr_contacts);
+}
+
+Contact	PhoneBook::get_contact(int index)
+{
+		return (this->contacts[index]);
 }
