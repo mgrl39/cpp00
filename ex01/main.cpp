@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 12:09:31 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 12:33:50 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,33 @@ static void	draw_column_name(std::string name, bool truncate)
 static int	show_specific_contact(PhoneBook phoneBook, int nbr_contacts)
 {
 	std::string	index_selected;
-	bool		is_number;
+	bool		is_valid_number;
 
-	is_number = false;
-	while (is_number != true)
+	is_valid_number = false;
+	while (is_valid_number != true)
 	{
 		if (loop_data_saver("SELECT INDEX:", &index_selected))
 			return (1);
 		if (verify_if_all_numbers(index_selected) == 0)
-			is_number = true;
+		{
+			if (index_selected.length() > 1)
+				std::cout << "one unique number..." << std::endl;
+			else if (index_selected[0] >= 48 && index_selected[0] <= 56)
+			{
+				if (index_selected[0] == 48)
+				{
+					std::cout << "exiting from search" << std::endl;
+					return (0);
+				}
+				std::cout << index_selected[0] << std::endl;
+				std::cout << nbr_contacts << std::endl;
+				std::cout << (index_selected[0] <= nbr_contacts + 48) << std::endl;
+				if ((int)(index_selected[0]) <= nbr_contacts + 48)
+					is_valid_number = true;
+				else
+					std::cout << "another number please..." << std::endl;
+			}
+		}
 	}
 	(void)nbr_contacts;
 	(void)phoneBook;
