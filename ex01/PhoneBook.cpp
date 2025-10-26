@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 07:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 11:36:56 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 11:59:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * Returns 1 if phone_number empty or is not only numbers
  * Returns 0 if phone_number is only numbers
  */
-static int 	phone_verify_if_all_numbers(std::string phone_number)
+int 	phone_verify_if_all_numbers(std::string phone_number)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ static int 	phone_verify_if_all_numbers(std::string phone_number)
  * If is EOF we return 1 as FAIL.
  * If everything OK is 0
  */
-static int	loop_data_saver(std::string var_name, std::string *var)
+int	loop_data_saver(std::string var_name, std::string *var)
 {
 	while (1)
 	{
@@ -71,7 +71,6 @@ static int	loop_data_saver(std::string var_name, std::string *var)
 // Returns 1 if fails
 // Returns 0 if success
 // A saved contact can’t have empty fields
-// TODO: FIX MODULE THING BECAUSE IS ONLY CHANGING THE FIRST ONE EACH TIME
 int	PhoneBook::add_contact()
 {
 	std::string first_name;

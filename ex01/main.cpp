@@ -6,13 +6,16 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 11:34:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 12:01:44 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include "PhoneBook.hpp"
+
+int	loop_data_saver(std::string var_name, std::string *var);
+int 	phone_verify_if_all_numbers(std::string phone_number);
 
 static void	print_welcome(void)
 {
@@ -43,16 +46,25 @@ static void	draw_column_name(std::string name, bool truncate)
 	std::cout << "|" << std::right << std::setw(10) << name;
 }
 
-static void	show_phonebook_contacts(PhoneBook phoneBook)
+static int	show_specific_contact(PhoneBook phoneBook, int nbr_contacts)
 {
-	int	nbr_contants;
+	std::string	hola;
+
+	(void)nbr_contacts;
+	(void)phoneBook;
+	return (0);
+}
+
+static int	show_phonebook_contacts(PhoneBook phoneBook)
+{
+	int	nbr_contacts;
 	Contact	actual_contact;
 
-	nbr_contants = phoneBook.get_nbr_contacts();
-	if (nbr_contants == 0)
+	nbr_contacts = phoneBook.get_nbr_contacts();
+	if (nbr_contacts == 0)
 	{
 		std::cout << "There are no contacts" << std::endl;
-		return ;
+		return (0);
 	}
 	int	i;
 	int	j;
@@ -67,7 +79,7 @@ static void	show_phonebook_contacts(PhoneBook phoneBook)
 	draw_column_name("NICKNAME", false);
 	std::cout << "|" << std::endl;
 	j = -1;
-	while (++j < nbr_contants)
+	while (++j < nbr_contacts)
 	{
 		std::cout << "|" << std::right << std::setw(10) << (j + 1);
 		actual_contact = phoneBook.get_contact(j);
@@ -76,11 +88,13 @@ static void	show_phonebook_contacts(PhoneBook phoneBook)
 		draw_column_name(actual_contact.get_nickname(), true);
 		std::cout << "|" << std::endl;
 	}
-	// TODO: SELECT THE SEARCH ONE THAT WE WANT TO SHOW
 	while (--i)
 		std::cout << "|" << "----------";
 	std::cout << "|" << std::endl;
 	std::cout << std::endl;
+	if (show_specific_contact(phoneBook, nbr_contacts) == 1)
+		return (1);
+	return (0);
 }
 
 static void	order_loop(void)
@@ -96,8 +110,8 @@ static void	order_loop(void)
 			break ;
 		if (order == "ADD" && phoneBook.add_contact())
 				break ;
-		else if (order == "SEARCH")
-			show_phonebook_contacts(phoneBook);
+		else if (order == "SEARCH" && show_phonebook_contacts(phoneBook))
+				break ;
 		print_available_orders();
 		std::cout << "\e[1;33m>\e[0m ";
 	}
