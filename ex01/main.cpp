@@ -6,16 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 08:09:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/10/26 06:57:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/10/26 08:32:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
-void	print_welcome(void)
+static void	print_welcome(void)
 {
 	std::string	welcome;
 
@@ -25,7 +23,7 @@ void	print_welcome(void)
 	std::cout << welcome << std::endl;
 }
 
-void	print_available_orders(void)
+static void	print_available_orders(void)
 {
 	std::string	order_list;
 
@@ -37,7 +35,7 @@ void	print_available_orders(void)
 	std::cout << order_list << std::endl;
 }
 
-void	order_loop(void)
+static void	order_loop(void)
 {
 	PhoneBook	phoneBook;
 	std::string	order;
