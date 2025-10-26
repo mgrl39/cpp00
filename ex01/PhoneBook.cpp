@@ -3,6 +3,7 @@
 
 /*
  * Returns 1 if phone_number empty or is not only numbers
+ * Returns 0 if phone_number is only numbers
  */
 static int 	phone_verify_if_all_numbers(std::string phone_number)
 {
@@ -21,6 +22,7 @@ static int 	phone_verify_if_all_numbers(std::string phone_number)
 	return (0);
 
 }
+
 /* 
  * Function to not be repeating the same in add_contact.
  * This one checks if its EOF or empty.
