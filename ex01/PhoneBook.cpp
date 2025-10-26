@@ -1,50 +1,15 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-/*
-static void	value_saver(std::string var_name, std::string *value)
-{
-	std::cout << "\e[1;33m";
-	std::cout << var_name << ">\e[0m ";
-	int	i;
-
-	i = 0;
-	//while (!std::getline(std::cin, *value))
-	while (1)
-	{
-		if (!std::getline(std::cin, *value)) 
-		{
-			std::cin.clear();
-			std::cout << "fail" << std::endl;
-		}
-		std::cout << (*value).length() << std::endl;
-		if (std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore((*value).size());
-			std::cout << "fail" << std::endl;
-		}
-		if (std::cin.eof()) 
-		{
-			std::cout << "EOF" << std::endl;
-			std::cout << i;
-			std::cin.clear();
-			std::cin.ignore((*value).size());
-		}
-		*value = "";
-		//if ((*value).length() > 0)
-			//break ;
-		std::cout << "\e[1;33m";
-		std::cout << var_name << ">\e[0m ";
-		i++;
-	}
-	if ((*value).empty())
-		std::cout << "MENSAJEEE" << std::endl;
-	std::cout << std::endl;
-}
-*/
-
-int	loop_data_saver(std::string var_name, std::string *var)
+/* 
+ * Function to not be repeating the same in add_contact.
+ * This one checks if its EOF or empty.
+ * If the string is empty, alerts that cannot be empty and asks again the
+ * content of the variable.
+ * If is EOF we return 1 as FAIL.
+ * If everything OK is 0
+ */
+static int	loop_data_saver(std::string var_name, std::string *var)
 {
 	while (1)
 	{
@@ -69,8 +34,10 @@ int	loop_data_saver(std::string var_name, std::string *var)
 	}
 	return (0);
 }
+
 // Returns 1 if fails
 // Returns 0 if success
+// A saved contact can’t have empty fields
 int	PhoneBook::add_contact()
 {
 	std::string first_name;
@@ -79,10 +46,6 @@ int	PhoneBook::add_contact()
 	std::string phone_number;
 	std::string darkest_secret;
 
-	// TODO: if variables are length() <= 0 empty fields try again.
-	// If EOF can be fail but no with empty fields...
-	// TODO: A saved contact can’t have empty fields
-	// aqui
 	if (loop_data_saver("FIRST NAME", &first_name) == 1)
 		return (1);
 	if (loop_data_saver("LAST NAME", &last_name) == 1)
@@ -93,16 +56,6 @@ int	PhoneBook::add_contact()
 		return (1);
 	if (loop_data_saver("DARKEST SECRET", &darkest_secret) == 1)
 		return (1);
-	/*
-	std::cout << "\e[1;33mLAST NAME >\e[0m "; 
-	std::getline(std::cin, last_name);
-	std::cout << "\e[1;33mNICKNAME >\e[0m "; 
-	std::getline(std::cin, nickname);
-	std::cout << "\e[1;33mPHONE NUMBER >\e[0m "; 
-	std::getline(std::cin, phone_number);
-	std::cout << "\e[1;33mDARKEST SECRET >\e[0m "; 
-	std::getline(std::cin, darkest_secret);*/
-
 	Contact	new_contact(first_name, last_name, nickname,\
 		phone_number, darkest_secret);
 	return (0);
